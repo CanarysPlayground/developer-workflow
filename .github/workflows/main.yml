@@ -2,6 +2,9 @@ name: Reusable workflow
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+        - "**"
 
 jobs:
   job1:
