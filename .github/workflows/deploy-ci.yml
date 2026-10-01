@@ -1,0 +1,24 @@
+name: API CI/CD
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      deploy-prod:
+        description: Deploy to PROD after DEV
+        type: boolean
+        default: false
+  push:
+    branches:
+      - "Release**"
+
+permissions:
+  contents: write
+  packages: write
+  security-events: write
+
+jobs:
+  api-ci-cd:
+    uses: XXXXX/api_templates/.github/workflows/api-jdk17.yml@main
+    with:
+      templates-repository: XXXXX/api_templates
+    secrets: inherit
